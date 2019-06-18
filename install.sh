@@ -136,6 +136,9 @@ on_install() {
   unzip -o "$ZIPFILE" 'op3hdr.sh' 'system/*' -d $MODPATH >&2
   cp -rf $MODPATH/op3hdr.sh /data/adb/service.d/
   chmod 755 /data/adb/service.d/op3hdr.sh
+  custom_variables
+  device_check
+  api_check
 }
 
 # Only some special files require specific permissions
@@ -156,3 +159,30 @@ set_permissions() {
 }
 
 # You can add more functions to assist your custom script code
+
+# this function associates the device model to OP3/3T allowing the installation
+
+custom_variables() {
+if [ -f vendor/build.prop ]; then BUILDS="/system/build.prop vendor/build.prop"; else BUILDS="/system/build.prop"; fi
+  OP3=$(grep -E "ro.product.device=oneplus3|ro.product.device=OnePlus3|ro.product.device=OnePlus3T" $BUILDS)
+}
+
+# this function allows installation just on OP3/3T
+
+device_check() {
+  if [ -n "$OP3" ]; then
+    break
+  else
+    abort "Your device is not a OnePlus 3/3T or you are using a modified build.prop"
+  fi
+}
+
+# this function allows installation just with API level that matches the requisites
+
+api_check() {
+  if [ "$API" -ge 26 ]; then
+    break
+  else
+    abort "Your Android version isn't supported"
+  fi
+}
