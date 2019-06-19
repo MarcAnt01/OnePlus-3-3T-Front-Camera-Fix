@@ -134,11 +134,11 @@ on_install() {
   # Extend/change the logic to whatever you want
   ui_print "- Extracting module files"
   unzip -o "$ZIPFILE" 'op3hdr.sh' 'system/*' -d $MODPATH >&2
-  cp -rf $MODPATH/op3hdr.sh /data/adb/service.d/
-  chmod 755 /data/adb/service.d/op3hdr.sh
   custom_variables
   device_check
   api_check
+  cp -rf $MODPATH/op3hdr.sh /data/adb/service.d/
+  chmod 755 /data/adb/service.d/op3hdr.sh
 }
 
 # Only some special files require specific permissions
