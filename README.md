@@ -1,5 +1,7 @@
 # OnePlus 3/3T Front Camera fix
 
+# THE CODE IN THIS REPO ISN'T UP-TO-DATE, TAKE A LOOK [HERE](https://github.com/Magisk-Modules-Repo/Oxy-ify)
+
 This module has to be used with a modified Google Camera, recommended versions for OnePlus 3/3T are the ones from [Arnova8G2](https://www.celsoazevedo.com/files/android/google-camera/dev-arnova8G2/) and [Toylan009](https://www.celsoazevedo.com/files/android/google-camera/dev-tolyan009/); you can also use the ones from [Urnyx05](https://www.celsoazevedo.com/files/android/google-camera/dev-urnyx05/) and [MarcAnt01](https://www.celsoazevedo.com/files/android/google-camera/dev-marcant01/).
 
 On OnePlus 3T only (not on 3) it increases the resolution of photos taken with front camera from 4 MP to 16 MP.
